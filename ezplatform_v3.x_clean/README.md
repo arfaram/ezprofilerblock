@@ -25,4 +25,6 @@ The Frontend Design is up to you ;)
 
 <img src="doc/profiler_block.png" />
 
+<img src="doc/profiler_block_front.png" />
+
 
