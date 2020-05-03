@@ -11,6 +11,14 @@ This implementation introduces the Profiler block for eZ Platform v3+ Enterprise
 
 - Add the differents files and directory to your project. 
 - Merge `services.yaml` with the default one.
+
+## Usage
+
+- Add `tags` fieldType to user and some other contentTypes
+- Use the same taxonomy for user and content
+- setup the Profiler block with some taxonomy 
+
+The Frontend Design is up to you ;) 
  
  
  ## How it works
