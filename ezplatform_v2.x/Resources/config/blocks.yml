@@ -1,0 +1,46 @@
+blocks:
+    profiler:
+        name: Profiler
+        category: default
+        thumbnail: '/bundles/ezplatformadminui/img/ez-icons.svg#assign-user'
+        configuration_template: 'EzSystemsProfilerBlockBundle:blocks/config:template.html.twig'
+        views:
+            events: { name: 'Profiler List', template: 'EzSystemsProfilerBlockBundle:blocks:profiler.html.twig' }
+            cards: { name: 'Profiler Cards', template: 'EzSystemsProfilerBlockBundle:blocks:profiler_cards.html.twig' }
+        attributes:
+            tags:
+                name: Tags
+                type: 'tags'
+                options:
+                    max_tags: 3
+                    max_results: 3
+                    subtree_limit: 513
+                    hide_root_tag: true
+                    edit_view: 'Default' # or 'Select'. 'Default' if not defined
+            contentId:
+                type: 'embed'
+                name: Parent
+                validators:
+                    not_blank:
+                        message: You must provide value
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Choose a Content item
+            depth:
+                type: 'multiple'
+                name: Subtree depth search
+                options:
+                    expanded: false
+                    choices:
+                        'Activate': 1
+            contentType:
+                type: 'contenttypelist'
+                name: ContentTypes to be displayed
+                validators:
+                    not_blank:
+                        message: You must provide value
+                    regexp:
+                        options:
+                            pattern: '/^([a-zA-Z_-]+|,[a-zA-Z_-]+)+$/i'
+                        message: Choose at least one content type

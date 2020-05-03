@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    EzSystems\ProfilerBlockBundle\Controller\UserProfileController:
+        public: true
+
+    EzSystems\ProfilerBlockBundle\Form\Type\UserPreferencesType:
+        tags:
+            - { name: form.type }
+
+#    app.permission_resolver:
+#        class: 'eZ\Publish\Core\Repository\Permission\PermissionResolver'
+#        factory: ['@ezpublish.api.inner_repository', 'getPermissionResolver']
+
+    EzSystems\ProfilerBlockBundle\User\UserInterests: ~

@@ -1,0 +1,40 @@
+{% if results|length > 0 %}
+    <div class="row block-header {{ block_class }}">
+        <span class="block-header__name">{{ block_name }}</span>
+    </div>
+
+    <div class="row cards-container">
+        <div class="card-deck">
+            {% for item in results  %}
+                {{ fos_httpcache_tag('relation-' ~ item.content.id) }}
+                <div class="card">
+                    {% set image_field_name = ez_content_field_identifier_first_filled_image(item.content) %}
+                    {% if image_field_name is not empty %}
+                        <div class="card-img-top">
+                            {{ ez_render_field(item.content, 'image', {
+                                parameters: {
+                                    alias: 'medium'
+                                }
+                            }) }}
+                        </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a class="card-title__link" href="{{ ez_path( item.location ) }}" >
+                                {{ ez_content_name( item.content ) }}
+                            </a>
+                        </h5>
+                        <div class="card-text">
+                            {% if item.content.fields.intro is defined and not ez_field_is_empty( item.content, "intro" ) %}
+                                {{ ez_render_field(item.content, 'intro')|striptags|u.truncate(180)|raw }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% if block_style is not empty %}
+        <style type="text/css">{% block block_style %}{{ block_style|raw }}{% endblock %}</style>
+    {% endif %}
+{% endif %}

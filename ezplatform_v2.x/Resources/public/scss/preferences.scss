@@ -1,0 +1,107 @@
+.user-form-preferences {
+  min-height: 650px;
+  background: url('/assets/images/travel-plan.jpg') no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.user-form-preferences h1 {
+  color: #f15a22;
+}
+
+.user-form-preferences .row.form {
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.user-form-preferences .row.form .col-md-4 {
+  background-color: #fff;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.user-form-preferences .btn {
+  padding: 10px 50px;
+  text-align: center;
+}
+
+.user-form-preferences .btn-submit {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.user-form-preferences .field-user-account input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #464a4c;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.user-form-preferences h2 {
+  font-size: 18pt;
+  padding-bottom: 10px;
+}
+
+.user-form-preferences p.description {
+  font-size: 12pt;
+  padding: 10px 0;
+}
+
+.user-form-preferences .form-item-user-interests-label {
+  font-size: 11pt;
+  padding-top: 5px;
+  display: block;
+}
+
+.user-form-preferences .form-item-user-interests {
+  padding: 5px 5px 20px 0;
+}
+
+
+.user-form-preferences .form-item-user-interests-error {
+  padding: 6px 0;
+  margin: 0;
+  color: #f00;
+  font-weight: bold;
+}
+
+.user-form-preferences .form-item-user-interests-error ul {
+  padding: 0;
+  margin: 0;
+}
+
+.user-form-preferences .form-item-user-interests-error li {
+  list-style: none;
+}
+
+.user-form-preferences .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-form-preferences .buttons .skip-action span {
+  color: hsla(0, 0%, 73%, 1);
+  padding: 7px;
+  display: block;
+  font-weight: bold;
+}
+
+.user-form-preferences .thanks-text {
+  color: hsla(0, 0%, 73%, 1);
+  padding: 10px 0;
+  margin-top: 15px;
+}
+
+.user-form-preferences .thanks-text p {
+  margin: 0 0 5px;
+}

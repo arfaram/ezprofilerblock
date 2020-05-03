@@ -1,0 +1,76 @@
+{% extends "@ezdesign/pagelayout.html.twig" %}
+
+{% form_theme form _self %}
+
+{%- block choice_widget_expanded -%}
+    <div {{ block('widget_container_attributes') }}>
+        {%- for child in form %}
+            <div class="choice_widget_item">
+                {{- form_widget(child) -}}
+                {{- form_label(child, null, {translation_domain: choice_translation_domain}) -}}
+            </div>
+        {% endfor -%}
+    </div>
+{%- endblock choice_widget_expanded -%}
+
+{% block page_head %}
+    {% set title = 'User preferences'|trans %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <section class="user-form-preferences">
+        <div class="row form">
+            <div class="col-md-4 offset-md-4">
+                <h2>{{ 'User preferences'|trans }}</h2>
+
+                {% if app.session.flashBag.has('success') %}
+                    <div class="alert alert-success">
+                        {% for msg in app.session.flashBag.get('success') %}
+                            {{ msg }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <p class="description">
+                    To help us give you a better experience on Tasteful Planet, tell us a bit more about yourself.
+                </p>
+
+                {{ form_start(form) }}
+
+                <span class="form-item-user-interests-label">
+                    {{ 'Would you define yourself as a:'|trans }}
+                </span>
+
+                {% if not form.interests.vars.valid %}
+                    <div class="form-item-user-interests-error">
+                        {{ form_errors(form.interests) }}
+                    </div>
+                {% endif %}
+
+                {{ form_widget(form.interests, {'attr': {'class': 'form-item-user-interests'} }) }}
+
+                <div class="buttons">
+                    {{ form_row(form.save, { 'attr': {'class': 'btn btn-primary'} }) }}
+
+                    <div class="skip-action">
+                        <a href="/"><span>Skip &gt;&gt;</span></a>
+                    </div>
+                </div>
+
+                {{ form_end(form) }}
+
+                <div class="thanks-text">
+                    <p>
+                        Thanks for telling us, we will use this information only to better tailor the content
+                        presented to you on the pages of Tasteful Planet.
+                    </p>
+                    <p>
+                        This information won't be shared and won't be use for any promotional activities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

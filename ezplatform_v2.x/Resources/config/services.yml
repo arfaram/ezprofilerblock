@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+    EzSystems\ProfilerBlockBundle\Event\ProfilerBlockListener:
+        arguments:
+            $languages: '$languages$'
+        tags:
+            - { name: kernel.event_subscriber, alias: events }

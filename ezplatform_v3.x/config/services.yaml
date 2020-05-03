@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true      
+        autoconfigure: true 
+
+    #Profiler Block
+    App\Event\ProfilerBlockListener:
+        arguments:
+            $languages: '$languages$'
+            $queryTypeRegistry: '@ezpublish.query_type.registry'
+            $tagsService: "@eztags.api.service.tags.inner"
+            $tagHandler: '@ezplatform.http_cache.fos_tag_handler.xkey'
+
+    App\QueryType\ProfilerQueryType: ~

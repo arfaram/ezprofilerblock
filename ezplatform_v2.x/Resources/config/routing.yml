@@ -1,0 +1,5 @@
+ezsystems.user_preferences:
+    path: /user/preferences
+    defaults:
+        _controller: EzSystems\ProfilerBlockBundle\Controller\UserProfileController:showPreferencesAction
+    methods: [GET, POST]
